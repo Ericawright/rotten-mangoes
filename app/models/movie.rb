@@ -3,7 +3,9 @@ class Movie < ActiveRecord::Base
   validates :director, presence: true
   validates :runtime_in_minutes, numericality: { only_integer: true }
   validates :description, presence: true
-  validates :image, presence: true
+  validates :image, presence: true, unless: ->(movie){movie.remote_image_url.present?}
+  validates :remote_image_url, presence: true, unless: ->(movie){movie.image.present?}
+
   validates :release_date, presence: true
   validate :release_date_is_in_the_future
   has_many :reviews
