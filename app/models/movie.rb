@@ -7,7 +7,7 @@ class Movie < ActiveRecord::Base
   validates :remote_image_url, presence: true, unless: ->(movie){movie.image.present?}
 
   validates :release_date, presence: true
-  validate :release_date_is_in_the_future
+  # validate :release_date_is_in_the_future
   has_many :reviews
   mount_uploader :image, ImageUploader
 
