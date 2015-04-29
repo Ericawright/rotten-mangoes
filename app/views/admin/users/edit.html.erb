@@ -25,12 +25,10 @@
     <%= f.text_field "lastname" %>
   </div>
   <div>
-    <%= f.label "password" %><br>
-    <%= f.password_field "password" %>
+    <%= f.label "Make admin?" %><br>
+    <%= f.check_box :administrator %>
   </div>
-  <div>
-    <%= f.label "password_confirmation" %><br>
-    <%= f.password_field "password_confirmation" %>
-  </div>
+  
   <div><%= f.submit "Submit" %></div>
+
 <% end %>
