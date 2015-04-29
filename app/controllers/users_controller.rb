@@ -29,6 +29,9 @@ class UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
+  # def preview_mode
+  #   @current_user = @user
+  # end
 
   protected
 

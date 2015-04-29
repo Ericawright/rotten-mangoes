@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+ 
+
   def index
     @movies = Movie.all
   end
@@ -24,7 +26,6 @@ class MoviesController < ApplicationController
       render :new
     end
   end
-
 
   def update
     @movie = Movie.find(params[:id])
