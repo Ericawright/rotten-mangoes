@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :movies do
+    get '/movies/search', to: 'movies#search', as: 'search' 
     resources :reviews
   end
   resources :users
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users 
-    get '/preview_user/:id', to: 'users#preview_mode', as: 'preview' 
+    get '/preview_user/:id', to: '/admin/users#preview_mode', as: 'preview' 
   end 
 
 end

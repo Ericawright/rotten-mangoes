@@ -1,5 +1,9 @@
 class MoviesController < ApplicationController
  
+  def search
+    @movies = Movie.all
+    render :index
+  end
 
   def index
     @movies = Movie.all
