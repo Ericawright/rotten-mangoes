@@ -15,7 +15,7 @@ class Admin::UsersController < ApplicationController
 
 
   def preview_mode
-    session[:user_id] = params[:id]
+    session[:user_id] = params[:id].to_i
     redirect_to movies_path
   end
 
