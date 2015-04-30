@@ -1,19 +1,14 @@
 class MoviesController < ApplicationController
-  # scope :search, -> {where("director LIKE ? OR title LIKE ?", "%#{params[:search]}%")}
- # scope :search, -> {where("director LIKE ?", "%#{params[:search]}%")}
-  def search
-    if params[:duration] !=  'none'
+  
+  def index
+    @movies = Movie.all
+    if params[:duration] !=  ''
       split = params[:duration].split("-")
       min = split[0]
       max = split[1]
     end
-    @movies = Movie.all
-    @movies = @movies.search(params[:search]).duration(min,max)
-    render :index
-  end
-
-  def index
-    @movies = Movie.all
+    @movies = @movies.search(params[:search])if params[:search] != ''
+    movies  = @movies.duration(min,max) if min
   end
 
   def show
