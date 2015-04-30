@@ -1,24 +1,28 @@
-<div>
+<div class = "placeholder">
+</div>
+<div class = "page-header">
+
+<h1>Rotten Mangoes</h1>
+<%= link_to "Submit a movie!", new_movie_path %>
+<hr>
 
 <%= form_tag("/movies/search", method: "post")  do%>
   <%= label_tag(:title, "Search by title") %>
   <%= text_field_tag(:title) %>
-
   <%= label_tag(:director, "Director") %>
   <%= text_field_tag(:director) %>
   <%= label_tag(:duration, "Duration") %>
   <%= select_tag(:duration, options_for_select([['select length', 'none'], ['under 90 min', '0-90'], ['between 90 min - 120 min', '90-120'], ['over 120 min', '120-9000']])) %>
   <%= submit_tag("search")%>
 
-
 <% end %>
 
 </div>
 
-<h1>Rotten Mangoes</h1>
-<%= link_to "Submit a movie!", new_movie_path %>
-<hr>
+<div class = "list-movies">
+
 <% @movies.each do |movie| %>
+<!--   <div class = "list-movies"> -->
   <%= link_to image_tag(movie.image_url(:thumb).to_s), movie_path(movie) %>
   <h2><%= link_to movie.title, movie_path(movie) %></h2>
   <h3><%= formatted_date(movie.release_date) %></h3>
@@ -26,4 +30,7 @@
   <p><%= movie.description %></p>
   <p><%= movie.review_average %>/10</p>
   <hr>
+  <!-- </div> -->
 <% end %>
+
+</div>
