@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
-  before_filter :restrict_access
-  before_filter :load_movie
+  before_action :restrict_access
+  before_action :load_movie
 
   def new
     @review = @movie.reviews.build

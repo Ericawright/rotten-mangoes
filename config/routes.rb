@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 
-
- post '/movies/search', to: 'movies#search', as: 'search' 
+  # get '/user_mailer/delete_email', to: 'mailers/user_mailer#delete_email', as: 'delete_email' 
+  post '/movies/search', to: 'movies#search', as: 'search' 
 
   resources :movies do
     resources :reviews

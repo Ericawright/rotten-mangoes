@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action only: :destroy do
+    @user = User.find(params[:id])
+    UserMailer.delete_email(@user)
+  end
+
+
   def new
     @user = User.new
   end
