@@ -1,9 +1,12 @@
 class MoviesController < ApplicationController
+
+  scope :director, -> { where("director LIKE ?", "%#{params[:director]}%")}
+  scope :title, -> {where("title LIKE ?", "%#{params[:title]}%")}
  
   def search
     @movies = Movie.all
-    @movies = @movies.where("title LIKE ?", "%#{params[:title]}%") 
-    @movies = @movies.where("director LIKE ?", "%#{params[:director]}%")
+    @movies = @movies.director
+    @movies = @movies.title
     if params[:duration] !=  'none'
       split = params[:duration].split("-")
       min = split[0]
