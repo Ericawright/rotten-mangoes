@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
 
 
+ post '/movies/search', to: 'movies#search', as: 'search' 
 
   resources :movies do
-    get '/movies/search', to: 'movies#search', as: 'search' 
     resources :reviews
   end
   resources :users
